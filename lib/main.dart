@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:chat_app_flutter/src/constants/consts.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -10,17 +10,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Chat App',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text("Chat App"),
-        ),
-      ),
+      initialRoute: RouteHelper.getInitial(),
+      getPages: RouteHelper.routes,
     );
   }
 }
