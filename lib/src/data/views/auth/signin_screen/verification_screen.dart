@@ -25,7 +25,7 @@ class VerificationScreen extends StatelessWidget {
           verificationCodeSection().box.margin(const EdgeInsets.symmetric(horizontal: 16.0, vertical: 32.0)).width(double.infinity).make(),
           20.heightBox,
           //next button
-          roundedButton(title: "next", buttonColor: appColor, routeName: RouteHelper.getSuccessfulScreen()),
+          roundedButton(title: "next", buttonColor: appColor, routeName: RouteHelper.getSuccessfulScreen(), context: context),
         ],
       ).box.margin(const EdgeInsets.symmetric(horizontal: 10.0, vertical: 16.0)).make(),
     );
