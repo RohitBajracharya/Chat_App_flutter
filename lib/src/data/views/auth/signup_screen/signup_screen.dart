@@ -8,7 +8,7 @@ class SignupScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var phoneController = TextEditingController();
-    var _terms = false.obs;
+    var terms = false.obs;
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -34,9 +34,9 @@ class SignupScreen extends StatelessWidget {
               Obx(
                 () => Checkbox(
                   activeColor: appColor,
-                  value: _terms.value,
+                  value: terms.value,
                   onChanged: (value) {
-                    _terms.value = value!;
+                    terms.value = value!;
                   },
                 ),
               ),
@@ -65,7 +65,7 @@ class SignupScreen extends StatelessWidget {
           //sign in button
           30.heightBox,
           Obx(
-            () => _terms.value
+            () => terms.value
                 ? roundedButton(
                     title: "Sign up",
                     buttonColor: appColor,
