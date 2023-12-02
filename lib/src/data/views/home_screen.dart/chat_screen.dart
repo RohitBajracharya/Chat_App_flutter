@@ -1,4 +1,5 @@
 import 'package:chat_app_flutter/src/constants/consts.dart';
+import 'package:chat_app_flutter/src/widgets/bottom_navbar.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
@@ -8,7 +9,6 @@ class ChatScreen extends StatefulWidget {
 }
 
 class _ChatScreenState extends State<ChatScreen> {
-  int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -33,62 +33,44 @@ class _ChatScreenState extends State<ChatScreen> {
     );
   }
 
-  BottomNavigationBar bottomNavigationBar() {
-    return BottomNavigationBar(
-      elevation: 2,
-      backgroundColor: const Color.fromARGB(255, 239, 239, 239),
-      onTap: (value) {
-        setState(() {
-          _currentIndex = value;
-        });
+  Widget messageContainer() {
+    return Dismissible(
+      key: UniqueKey(),
+      background: Container(
+        color: Colors.red,
+        alignment: Alignment.centerRight,
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+        child: const Icon(
+          Icons.close,
+          color: Colors.white,
+          size: 30,
+        ),
+      ),
+      onDismissed: (direction) {
+        VxToast.show(context, msg: "Chat Deleted");
       },
-      showSelectedLabels: false,
-      showUnselectedLabels: false,
-      currentIndex: _currentIndex,
-      type: BottomNavigationBarType.fixed,
-      items: [
-        BottomNavigationBarItem(
-          icon: Icon(MdiIcons.messageOutline, color: _currentIndex == 0 ? appColor : textColor),
-          label: "Message",
+      child: Container(
+        margin: const EdgeInsets.all(5.0),
+        padding: const EdgeInsets.all(16.0),
+        width: double.infinity,
+        height: 80,
+        decoration: const BoxDecoration(border: Border(bottom: BorderSide(color: textColor, width: 0.2))),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            //profile picture
+            const CircleAvatar(
+              radius: 25,
+              backgroundImage: AssetImage("assets/images/pp1.jpg"),
+            ),
+            20.widthBox,
+            //username and last message and delivered icon
+            usernameLastmsgIcon(),
+            const Spacer(),
+            //msg time and no of message
+            noOfMsgNTime(),
+          ],
         ),
-        BottomNavigationBarItem(
-          icon: Icon(MdiIcons.phoneOutline, color: _currentIndex == 1 ? appColor : textColor),
-          label: "Call",
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(MdiIcons.cameraOutline, color: _currentIndex == 2 ? appColor : textColor),
-          label: "Camera",
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(MdiIcons.accountOutline, color: _currentIndex == 3 ? appColor : textColor),
-          label: "User",
-        ),
-      ],
-    );
-  }
-
-  Container messageContainer() {
-    return Container(
-      margin: const EdgeInsets.all(5.0),
-      padding: const EdgeInsets.all(16.0),
-      width: double.infinity,
-      height: 80,
-      decoration: const BoxDecoration(border: Border(bottom: BorderSide(color: textColor, width: 0.2))),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          //profile picture
-          const CircleAvatar(
-            radius: 25,
-            backgroundImage: AssetImage("assets/images/pp1.jpg"),
-          ),
-          20.widthBox,
-          //username and last message and delivered icon
-          usernameLastmsgIcon(),
-          const Spacer(),
-          //msg time and no of message
-          noOfMsgNTime(),
-        ],
       ),
     );
   }
@@ -160,11 +142,16 @@ class _ChatScreenState extends State<ChatScreen> {
         Get.toNamed(RouteHelper.getEditChatScreen());
       }),
       actions: [
-        Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Icon(
-            MdiIcons.contacts,
-            color: Colors.white,
+        GestureDetector(
+          onTap: () {
+            Get.toNamed(RouteHelper.getContactScreen());
+          },
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Icon(
+              MdiIcons.contacts,
+              color: Colors.white,
+            ),
           ),
         ),
       ],
