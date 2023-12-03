@@ -110,7 +110,7 @@ class _EditChatScreenState extends State<EditChatScreen> {
         //msg time
         "20.53".text.semiBold.color(appColor).make(),
         //no of message
-        "2".text.white.size(lastMessageText).makeCentered().box.padding(const EdgeInsets.all(5.0)).color(appColor).roundedFull.make(),
+        "2".text.white.size(miniText).makeCentered().box.padding(const EdgeInsets.all(5.0)).color(appColor).roundedFull.make(),
       ],
     );
   }
@@ -128,7 +128,7 @@ class _EditChatScreenState extends State<EditChatScreen> {
             // last message
             Text(
               msg.length <= 20 ? msg : '${msg.substring(0, 20)}...',
-            ).text.size(lastMessageText).semiBold.color(textColor).overflow(TextOverflow.ellipsis).maxLines(1).make(),
+            ).text.size(miniText).semiBold.color(textColor).overflow(TextOverflow.ellipsis).maxLines(1).make(),
             10.widthBox,
             //delivered icon
             Icon(

@@ -1,5 +1,6 @@
 import 'package:chat_app_flutter/src/constants/consts.dart';
 import 'package:chat_app_flutter/src/widgets/bottom_navbar.dart';
+import 'package:chat_app_flutter/src/widgets/search_field.dart';
 
 class ContactScreen extends StatelessWidget {
   const ContactScreen({super.key});
@@ -18,7 +19,7 @@ class ContactScreen extends StatelessWidget {
       color: appColor.withOpacity(0.1),
       child: Column(
         children: [
-          searchField(),
+          searchField("Search Contacts"),
           contactContainer(imageUrl: "assets/images/pp2.jpg", username: "Gail Forcewind", phoneNumber: "9876543210"),
           "Contacts".text.color(appColor).semiBold.size(normalText).make().box.padding(const EdgeInsets.all(10.0)).width(double.infinity).make(),
           inviteFriend(),
@@ -78,24 +79,6 @@ class ContactScreen extends StatelessWidget {
     );
   }
 
-  GestureDetector searchField() {
-    return GestureDetector(
-      onTap: () {},
-      child: Container(
-        padding: const EdgeInsets.all(8.0),
-        width: double.infinity,
-        color: appColor.withOpacity(0.1),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(Icons.search, color: appColor.withOpacity(0.5)),
-            "Search Contacts".text.color(appColor.withOpacity(0.5)).make(),
-          ],
-        ),
-      ),
-    );
-  }
-
   Container contactContainer({imageUrl, username, phoneNumber}) {
     return Container(
       padding: const EdgeInsets.all(16.0),
@@ -118,7 +101,7 @@ class ContactScreen extends StatelessWidget {
               //username
               "$username".text.size(normalText).semiBold.color(appColor).make(),
               //phone number
-              "+977-$phoneNumber".text.size(lastMessageText).semiBold.color(textColor).overflow(TextOverflow.ellipsis).maxLines(1).make(),
+              "+977-$phoneNumber".text.size(miniText).semiBold.color(textColor).overflow(TextOverflow.ellipsis).maxLines(1).make(),
             ],
           ),
         ],

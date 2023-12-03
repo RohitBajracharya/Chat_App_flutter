@@ -1,5 +1,6 @@
 import 'package:chat_app_flutter/src/constants/consts.dart';
 import 'package:chat_app_flutter/src/widgets/bottom_navbar.dart';
+import 'package:chat_app_flutter/src/widgets/search_field.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
@@ -17,7 +18,7 @@ class _ChatScreenState extends State<ChatScreen> {
         bottomNavigationBar: bottomNavigationBar(),
         body: Column(
           children: [
-            searchField(),
+            searchField("Search for messages or users"),
             Expanded(
               child: ListView.builder(
                 physics: const BouncingScrollPhysics(),
@@ -71,7 +72,9 @@ class _ChatScreenState extends State<ChatScreen> {
             noOfMsgNTime(),
           ],
         ),
-      ),
+      ).onTap(() {
+        Get.toNamed(RouteHelper.getMessageScreen());
+      }),
     );
   }
 
@@ -82,7 +85,7 @@ class _ChatScreenState extends State<ChatScreen> {
         //msg time
         "20.53".text.semiBold.color(appColor).make(),
         //no of message
-        "2".text.white.size(lastMessageText).makeCentered().box.padding(const EdgeInsets.all(5.0)).color(appColor).roundedFull.make(),
+        "2".text.white.size(miniText).makeCentered().box.padding(const EdgeInsets.all(5.0)).color(appColor).roundedFull.make(),
       ],
     );
   }
@@ -100,7 +103,7 @@ class _ChatScreenState extends State<ChatScreen> {
             // last message
             Text(
               msg.length <= 20 ? msg : '${msg.substring(0, 20)}...',
-            ).text.size(lastMessageText).semiBold.color(textColor).overflow(TextOverflow.ellipsis).maxLines(1).make(),
+            ).text.size(miniText).semiBold.color(textColor).overflow(TextOverflow.ellipsis).maxLines(1).make(),
             10.widthBox,
             //delivered icon
             Icon(
@@ -111,24 +114,6 @@ class _ChatScreenState extends State<ChatScreen> {
           ],
         ),
       ],
-    );
-  }
-
-  GestureDetector searchField() {
-    return GestureDetector(
-      onTap: () {},
-      child: Container(
-        padding: const EdgeInsets.all(8.0),
-        width: double.infinity,
-        color: appColor.withOpacity(0.1),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(Icons.search, color: appColor.withOpacity(0.5)),
-            "Search for messages or users".text.color(appColor.withOpacity(0.5)).make(),
-          ],
-        ),
-      ),
     );
   }
 

@@ -8,6 +8,20 @@ Obx bottomNavigationBar() {
         backgroundColor: const Color.fromARGB(255, 239, 239, 239),
         onTap: (value) {
           controller.currentNavIndex.value = value;
+          switch (value) {
+            case 0:
+              Get.toNamed(RouteHelper.getChatScreen());
+              break;
+            case 1:
+              Get.toNamed(RouteHelper.getPhoneScreen());
+              break;
+            case 2:
+              Get.toNamed(RouteHelper.getCameraScreen());
+              break;
+            case 3:
+              Get.toNamed(RouteHelper.getProfileScreen());
+              break;
+          }
         },
         showSelectedLabels: false,
         showUnselectedLabels: false,
