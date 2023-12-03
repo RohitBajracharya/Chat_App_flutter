@@ -22,7 +22,7 @@ class SuccessfulScreen extends StatelessWidget {
               10.heightBox,
               "You can use the chat now".text.fontFamily(regular).size(smallText).make(),
               50.heightBox,
-              roundedButton(title: "Enter Now", buttonColor: appColor, routeName: RouteHelper.getHomeScreen()),
+              roundedButton(title: "Enter Now", buttonColor: appColor, routeName: RouteHelper.getHomeScreen(), context: context),
             ],
           ),
         ),

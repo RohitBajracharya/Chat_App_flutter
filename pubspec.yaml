@@ -33,6 +33,7 @@ dependencies:
     sdk: flutter
   flutter_verification_code: ^1.1.7
   get: ^4.6.6
+  image_picker: ^1.0.4
   material_design_icons_flutter: ^7.0.7296
   velocity_x: ^4.1.2
 

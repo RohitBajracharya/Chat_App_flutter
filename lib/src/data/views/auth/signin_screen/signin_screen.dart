@@ -38,7 +38,7 @@ class SigninScreen extends StatelessWidget {
           ),
           //sign in button
           30.heightBox,
-          roundedButton(title: "Sign in", buttonColor: appColor, routeName: RouteHelper.getVerificationScreen()),
+          roundedButton(title: "Sign in", buttonColor: appColor, routeName: RouteHelper.getVerificationScreen(), context: context),
           //dont have an account text
           20.heightBox,
           Row(

@@ -22,10 +22,10 @@ class AuthScreen extends StatelessWidget {
             "Sign In / Sign Up".text.size(titleText).color(appColor).fontFamily(bold).make(),
             20.heightBox,
             //signin button
-            roundedButton(title: "Sign in", buttonColor: appColor, routeName: RouteHelper.getSigninScreen()),
+            roundedButton(title: "Sign in", buttonColor: appColor, routeName: RouteHelper.getSigninScreen(), context: context),
             20.heightBox,
             //sign up button
-            roundedButton(title: "Sign up", buttonColor: secondaryColor, routeName: RouteHelper.getSignupScreen()),
+            roundedButton(title: "Sign up", buttonColor: secondaryColor, routeName: RouteHelper.getSignupScreen(), context: context),
           ],
         ),
       ),
