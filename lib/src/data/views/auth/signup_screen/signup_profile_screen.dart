@@ -28,7 +28,7 @@ class _SignupProfileScreenState extends State<SignupProfileScreen> {
                 //take picture
                 GestureDetector(
                   onTap: () async {
-                    final img = await ImagePicker().pickImage(source: ImageSource.camera);
+                    await ImagePicker().pickImage(source: ImageSource.camera);
                   },
                   child: Container(
                     padding: const EdgeInsets.all(16.0),
@@ -55,7 +55,7 @@ class _SignupProfileScreenState extends State<SignupProfileScreen> {
                 //select picture
                 GestureDetector(
                   onTap: () async {
-                    final img = await ImagePicker().pickImage(source: ImageSource.gallery);
+                    await ImagePicker().pickImage(source: ImageSource.gallery);
                   },
                   child: Container(
                     padding: const EdgeInsets.all(16.0),
@@ -141,7 +141,7 @@ class _SignupProfileScreenState extends State<SignupProfileScreen> {
             buttonColor: appColor,
             context: context,
             title: "Sign up",
-            routeName: RouteHelper.getHomeScreen(),
+            routeName: RouteHelper.getChatScreen(),
           ),
         ],
       ).box.padding(const EdgeInsets.all(32.0)).makeCentered(),
