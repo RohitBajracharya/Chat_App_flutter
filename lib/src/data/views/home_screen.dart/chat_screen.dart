@@ -71,7 +71,9 @@ class _ChatScreenState extends State<ChatScreen> {
             noOfMsgNTime(),
           ],
         ),
-      ),
+      ).onTap(() {
+        Get.toNamed(RouteHelper.getMessageScreen());
+      }),
     );
   }
 
