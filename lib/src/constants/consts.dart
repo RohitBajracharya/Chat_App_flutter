@@ -1,4 +1,5 @@
 export 'package:chat_app_flutter/src/constants/colors.dart';
+export 'package:chat_app_flutter/src/constants/lists.dart';
 export 'package:chat_app_flutter/src/constants/sizes.dart';
 export 'package:chat_app_flutter/src/constants/strings.dart';
 export 'package:chat_app_flutter/src/routes/route_helper.dart';

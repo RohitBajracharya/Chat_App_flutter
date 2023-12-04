@@ -11,6 +11,7 @@ import 'package:chat_app_flutter/src/data/views/home_screen.dart/chat_screen.dar
 import 'package:chat_app_flutter/src/data/views/home_screen.dart/edit_chat_screen.dart';
 import 'package:chat_app_flutter/src/data/views/message_screeen/message_screen.dart';
 import 'package:chat_app_flutter/src/data/views/phone_screen.dart/phone_screen.dart';
+import 'package:chat_app_flutter/src/data/views/profile_screen.dart/edit_profile_screen.dart';
 import 'package:chat_app_flutter/src/data/views/profile_screen.dart/profile_screen.dart';
 import 'package:chat_app_flutter/src/data/views/splash_screen/splash_screen.dart';
 
@@ -29,6 +30,7 @@ class RouteHelper {
   static const String _phoneScreen = "/phone";
   static const String _cameraScreen = "/camera";
   static const String _profileScreen = "/profile";
+  static const String _editProfileScreen = "/edit-profile";
 
   static String getInitial() => _initial;
   static String getAuthScreen() => _authScreen;
@@ -44,6 +46,7 @@ class RouteHelper {
   static String getPhoneScreen() => _phoneScreen;
   static String getCameraScreen() => _cameraScreen;
   static String getProfileScreen() => _profileScreen;
+  static String getEditProfileScreen() => _editProfileScreen;
 
   static List<GetPage> routes = [
     //splash screen
@@ -74,5 +77,7 @@ class RouteHelper {
     GetPage(name: _cameraScreen, page: () => const CameraScreen()),
     //profile screen
     GetPage(name: _profileScreen, page: () => const ProfileScreen()),
+    //edit profile screen
+    GetPage(name: _editProfileScreen, page: () => const EditProfileScreen()),
   ];
 }
