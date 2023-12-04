@@ -72,7 +72,6 @@ class PhoneScreen extends StatelessWidget {
   }
 
   Column usernameNIcon() {
-    String msg = "Hello my name is Dierdre Jhon. How are you?";
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

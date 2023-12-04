@@ -31,7 +31,6 @@ class ProfileScreen extends StatelessWidget {
           return GestureDetector(
             onTap: () {
               var route = profileItems[index]['route'];
-              print(route);
               Get.toNamed(route);
             },
             child: Container(
