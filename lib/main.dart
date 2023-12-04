@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      defaultTransition: Transition.leftToRightWithFade,
       debugShowCheckedModeBanner: false,
       title: 'Chat App',
       theme: ThemeData(
