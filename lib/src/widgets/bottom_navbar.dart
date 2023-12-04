@@ -29,7 +29,7 @@ Obx bottomNavigationBar() {
         type: BottomNavigationBarType.fixed,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(MdiIcons.messageOutline, color: controller.currentNavIndex.value == 0 ? appColor : textColor),
+            icon: Icon(MdiIcons.forumOutline, color: controller.currentNavIndex.value == 0 ? appColor : textColor),
             label: "Message",
           ),
           BottomNavigationBarItem(

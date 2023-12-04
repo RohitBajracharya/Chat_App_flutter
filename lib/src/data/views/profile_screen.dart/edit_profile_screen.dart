@@ -1,8 +1,9 @@
 import 'package:chat_app_flutter/src/constants/consts.dart';
 import 'package:chat_app_flutter/src/widgets/bottom_navbar.dart';
+import 'package:chat_app_flutter/src/widgets/rounded_button.dart';
 
-class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
+class EditProfileScreen extends StatelessWidget {
+  const EditProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,44 +18,37 @@ class ProfileScreen extends StatelessWidget {
       body: Column(
         children: [
           imgNusernameNnumber(),
-          profileMenuItem(),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              children: [
+                textField(titleText: "your name", textfieldValue: "Gail Forcewind"),
+                30.heightBox,
+                textField(titleText: "your phone", textfieldValue: "9876543210"),
+                30.heightBox,
+                roundedButton(
+                  buttonColor: appColor,
+                  title: "Update",
+                  routeName: RouteHelper.getProfileScreen(),
+                  context: context,
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
   }
 
-  Expanded profileMenuItem() {
-    return Expanded(
-      child: ListView.builder(
-        itemCount: profileItems.length,
-        itemBuilder: (context, index) {
-          return GestureDetector(
-            onTap: () {
-              var route = profileItems[index]['route'];
-              print(route);
-              Get.toNamed(route);
-            },
-            child: Container(
-              padding: const EdgeInsets.all(16.0),
-              height: 60,
-              width: double.infinity,
-              decoration: const BoxDecoration(
-                border: Border(bottom: BorderSide(color: Colors.grey)),
-              ),
-              child: Row(
-                children: [
-                  Icon(
-                    profileItems[index]['icons'],
-                    color: appColor,
-                  ),
-                  20.widthBox,
-                  "${profileItems[index]['itemName']}".text.size(normalText).make(),
-                ],
-              ),
-            ),
-          );
-        },
-      ),
+  Column textField({titleText, textfieldValue}) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        "$titleText".text.uppercase.color(appColor).semiBold.size(normalText).make(),
+        TextField(
+          controller: TextEditingController(text: "$textfieldValue"),
+        ),
+      ],
     );
   }
 
@@ -88,9 +82,7 @@ class ProfileScreen extends StatelessWidget {
                   top: 75,
                   left: 75,
                   child: IconButton(
-                    onPressed: () {
-                      Get.toNamed(RouteHelper.getEditProfileScreen());
-                    },
+                    onPressed: () {},
                     icon: Icon(
                       MdiIcons.pencilOutline,
                       color: Colors.white,
