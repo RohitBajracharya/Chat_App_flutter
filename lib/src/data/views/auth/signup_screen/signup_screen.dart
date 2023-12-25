@@ -8,6 +8,7 @@ class SignupScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var phoneController = TextEditingController();
+    var passwordController = TextEditingController();
     var terms = false.obs;
 
     return Scaffold(
@@ -17,15 +18,24 @@ class SignupScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          "Sign Up With Mobile Number".text.semiBold.color(appColor).align(TextAlign.center).size(titleText).make(),
+          "Sign Up With Email".text.semiBold.color(appColor).align(TextAlign.center).size(titleText).make(),
           20.heightBox,
-          //phone textfield
+          //email textfield
           formField(
-            title: "phone",
-            hintText: "9876543210",
-            iconName: MdiIcons.phone,
+            title: "email",
+            hintText: "mithoguff@gmail.com",
+            iconName: MdiIcons.email,
             controller: phoneController,
             isPassword: false,
+          ),
+          20.heightBox,
+          //password textfield
+          formField(
+            title: "password",
+            hintText: "********",
+            iconName: MdiIcons.lock,
+            controller: passwordController,
+            isPassword: true,
           ),
           20.heightBox,
           //check field

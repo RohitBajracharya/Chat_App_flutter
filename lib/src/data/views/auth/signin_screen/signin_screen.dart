@@ -17,13 +17,13 @@ class SigninScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          "Sign In With Mobile Number".text.semiBold.color(appColor).align(TextAlign.center).size(titleText).make(),
+          "Sign In With Email".text.semiBold.color(appColor).align(TextAlign.center).size(titleText).make(),
           20.heightBox,
           //phone textfield
           formField(
-            title: "phone",
-            hintText: "9876543210",
-            iconName: MdiIcons.phone,
+            title: "email",
+            hintText: "mithoguff@gmail.com",
+            iconName: MdiIcons.email,
             controller: phoneController,
             isPassword: false,
           ),
@@ -38,7 +38,7 @@ class SigninScreen extends StatelessWidget {
           ),
           //sign in button
           30.heightBox,
-          roundedButton(title: "Sign in", buttonColor: appColor, routeName: RouteHelper.getVerificationScreen(), context: context),
+          roundedButton(title: "Sign in", buttonColor: appColor, routeName: RouteHelper.getChatScreen(), context: context),
           //dont have an account text
           20.heightBox,
           Row(
